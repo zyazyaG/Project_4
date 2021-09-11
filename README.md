@@ -41,63 +41,25 @@ SizeRank -- rank of the zipcode according to urbanization.
 
 ***
 
-## Analysis Outline
+## Table of Content
+
+- [Data Cleaning and Explorations](#cleaning)
+  * [Medium Price as Investment Capital](#medprice)
+  * [Volatility of the Market](#volatility)
+  * [ROI for the last 24 months](#roi)
+  * [Data Cleaning and and Exploration Summary:](#cleaning_summary)
+- [Data Preparation](#prep)
+  * [Stationarity](#station)
+  * [ACF and PACF](#acf)
+- [Baseline Auto - ARIMA Model](#autoar)
+- [SARIMAX Model with (2, 0, 0) order](#sarim)
+- [Facebook Prophet Model](#prophet)
+- [Final SARIMAX  Model](#finsarim)
+- [Results](#results)
+- [Notes](#notes)
+- [Next Steps](#steps)
 
 
-<br>
-<details><summary><b>Data Exploration</b></summary>
-    <ul>
-        <li>Import Packages</li>
-        <li>Upload Dataset</li>
-        <li>Explore Dataset</li>
-        <li>Visual Exploration</li>
-    </ul>
-</details>     
-<details><summary><b>Exploration Analysis</b></summary>
-    <ul>
-        <li>Minimum Price</li>
-        <li>Volatility</li>
-        <li>ROI for 24 Months</li>
-    </ul>
-</details>     
-<details><summary><b>Data Preparation</b></summary>
-    <ul>
-        <li>Sationarity</li>
-        <li>Non Stationary to Stationary</li>
-        <li>ACF and PACF</li>
-    </ul>
-</details>     
-  
-<details><summary><b>BASELINE AUTO-ARIMA MODEL</b></summary>
-    <ul>
-        <li><b>Train Test Split</b></li>
-        <li>## 33064 Zipcode Model</li>
-        <li>## 33157 Zipcode Model</li>
-        <li>## 32825 Zipcode Model</li>
-        <li>## 33463 Zipcode Model</li>
-        <li>## 34698 Zipcode Model</li>
-        <li>## 33020 Zipcode Model</li>
-        <li>## 33033 Zipcode Model</li>
-        <li>## 32771 Zipcode Model</li>
-    </ul>
-</details>     
-<b>SARIMAX (2, 0, 0) Model</b>
-<details><summary><b>Facebook Prophet Model</b></summary>
-    <ul>
-        <li>Train - Test Split</li>
-        <li>## 33064 Zipcode</li>
-        <li>## 33033 Zipcode</li>
-        <li>## 33157 Zipcode</li>
-    </ul>
-</details> 
-<b>Final SARIMAX (2, 0, 0) Model</b>
-<details><summary><b>Results and Conclusions</b></summary>
-    <ul>
-        <li>Results</li>
-        <li>Notes</li>
-        <li>Next Steps</li>
-    </ul>
-</details> 
 
 ## Data Cleaning and Explorations
 
@@ -148,7 +110,7 @@ The graph shows that the **median value for volatility rate was around 1.7**. I 
 
 ***
 
-### Calculate the ROI for the last 24 months
+### ROI for the last 24 months
 
 Considering that I want the zipcodes with **high performance on returns**, I calculated the **average 24 months ROI percentage** of each zipcode, in order to find **zipcodes that have highest return.**
 
@@ -158,7 +120,7 @@ The **median ROI** for the last 24 months of all zipcodes in Florida was **7%**,
 
 ***
 
-#### Data Cleaning and Exploration Summary:
+### Data Cleaning and Exploration Summary:
 
 The datast had been cleaned out and filtered down as follows:
 * Zipcodes of **Florida State** had been selected
@@ -172,6 +134,8 @@ The initial **amount of zipcodes** was reduced **from 14723 to 14.**
 ***
 
 ## Data Preparation
+
+### Stationarity
 
 Before proceeding to modeling I checked the **data stationarity and autocorrelation of the prices by using visual tools and Dicky-Fuller Test funtion.** 
 
