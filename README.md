@@ -18,7 +18,10 @@ For this project, I will be acting as a consultant for a real-estate investment 
 
 ![florida1](images/florida1.png)
 
-insert article
+Florida real estate has always been a good deal for investors. Stunning beaches, beautiful weather, numerous landmarks and attractions, various opportunities and no income tax are just a few of the top reasons why new residents and investors are attracted to Florida. In 2019 Florida became one of the seven states that forgo individual income taxes. In addition, mortgage rates are still at the lowest levels since the 1960s. The housing market is more stable compared to the early 2010s.
+
+Source: Florida Property Management & Sales  
+Link to article: https://floridapropertyrealty.com/tax-benefits-florida-real-estate/
 ***
 
 ## Data
