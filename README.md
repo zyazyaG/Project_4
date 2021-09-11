@@ -43,6 +43,8 @@ SizeRank -- rank of the zipcode according to urbanization.
 
 ## Analysis Outline
 
+
+<br>
 <details><summary><b>Data Exploration</b></summary>
     <ul>
         <li>Import Packages</li>
@@ -66,32 +68,36 @@ SizeRank -- rank of the zipcode according to urbanization.
     </ul>
 </details>     
   
-<details><summary><b>BASELINE ARIMA MODEL</b></summary>
+<details><summary><b>BASELINE AUTO-ARIMA MODEL</b></summary>
     <ul>
         <li><b>Train Test Split</b></li>
-        <li>Model Evaluation</li>
-        <li>Grid Search for Best C - Value</li>
-        <li>Model Summary</li>
+        <li>## 33064 Zipcode Model</li>
+        <li>## 33157 Zipcode Model</li>
+        <li>## 32825 Zipcode Model</li>
+        <li>## 33463 Zipcode Model</li>
+        <li>## 34698 Zipcode Model</li>
+        <li>## 33020 Zipcode Model</li>
+        <li>## 33033 Zipcode Model</li>
+        <li>## 32771 Zipcode Model</li>
     </ul>
 </details>     
-<details><summary><b>K Nearest Neighbors Classifier</b></summary>
+<b>SARIMAX (2, 0, 0) Model</b>
+<details><summary><b>Facebook Prophet Model</b></summary>
     <ul>
-        <li><b>Model 2: KNN with All Features</b></li>
-        <li>Model Evaluation</li>
-        <li>Model Summary</li>
-    </ul>
-</details>  
-<details><summary><b>Decision Tree Classifier</b></summary>
-    <ul>
-        <li>Model Evaluation</li>
-        <li>Model Summary</li>
+        <li>Train - Test Split</li>
+        <li>## 33064 Zipcode</li>
+        <li>## 33033 Zipcode</li>
+        <li>## 33157 Zipcode</li>
     </ul>
 </details> 
-
-<b>Modeling Conclusion</b><br>
-<b>Evaluation of Final Model</b><br>
-<b>Recommendations Based on Final Model</b><br>
-<b>Next Step</b>
+<b>Final SARIMAX (2, 0, 0) Model</b>
+<details><summary><b>Results and Conclusions</b></summary>
+    <ul>
+        <li>Results</li>
+        <li>Notes</li>
+        <li>Next Steps</li>
+    </ul>
+</details> 
 
 ## Data Cleaning and Explorations
 
