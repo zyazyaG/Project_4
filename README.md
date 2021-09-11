@@ -43,21 +43,21 @@ SizeRank -- rank of the zipcode according to urbanization.
 
 ## Table of Content
 
-- [Data Cleaning and Explorations](#cleaning)
-  * [Medium Price as Investment Capital](#medprice)
-  * [Volatility of the Market](#volatility)
-  * [ROI for the last 24 months](#roi)
-  * [Data Cleaning and and Exploration Summary:](#cleaning_summary)
-- [Data Preparation](#prep)
-  * [Stationarity](#station)
-  * [ACF and PACF](#acf)
-- [Baseline Auto - ARIMA Model](#autoar)
-- [SARIMAX Model with (2, 0, 0) order](#sarim)
-- [Facebook Prophet Model](#prophet)
-- [Final SARIMAX  Model](#finsarim)
-- [Results](#results)
-- [Notes](#notes)
-- [Next Steps](#steps)
+- Data Cleaning and Explorations
+  * Medium Price as Investment Capital
+  * Volatility of the Market
+  * ROI for the last 24 months
+  * Data Cleaning and and Exploration Summary:
+- Data Preparation
+  * Stationarity
+  * ACF and PACF
+- Baseline Auto - ARIMA Model
+- SARIMAX Model with (2, 0, 0) order
+- Facebook Prophet Model
+- Final SARIMAX  Model
+- Results
+- Notes
+- Next Steps
 
 
 
