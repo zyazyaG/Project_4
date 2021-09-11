@@ -167,7 +167,7 @@ The **dataset** itself looked as follows:
 The ACF graphs showed that the **median prices** of houses are **significantly correlated for first lag** for most of the zipcodes and all zipcodes have **negative correlation at different lags.**
 
 ![graph8](images/graph8.png)
-
+![graph20](images/graph20.png)
 ***
 
 # Baseline Auto - ARIMA Model
@@ -183,7 +183,7 @@ I've built **8 different auto-ARIMA models** and evaluated results based on **AI
 * **Model 1** (33064) showed the best results in terms of **AIC value (2611)** and **Model 7** (33033) showed best results for **Testing RMSE (379.3)**. Following graph contains  **plot of predictions** and **diagnostics plot** for those two models.
 
 ![graph10](images/graph10.png)
-
+![graph19](images/graph19.png)
 ### Summary:
 
 * Standardized residual graphs show that the **residual errors fluctuate around 150** for both of the models. 
@@ -213,7 +213,9 @@ I built a Facebook Prophet Model since it suppose to **perform better with seaso
 
 After building models for three datasets, it was clear that **Facebook Prophet performed worse than ARIMA models**. The **Mean Squared Error was higher with Prophet** and due to noticable fluctuation in dataset, the model **forecasted in downward direction**, whereas the **actual values go up**.
 
-![graph12](images/graph12.png)
+![graph12a](images/graph12a.png)
+![graph12b](images/graph12b.png)
+![graph12c](images/graph12c.png)
 
 ***
 
