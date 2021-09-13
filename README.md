@@ -6,10 +6,10 @@
 
 ## Overview
 
-For this project, I will be acting as a consultant for a real-estate investment firm. The main goal for my project is to identify **Top 5 zipcodes** that are worth investing in and **forecast the price** for future. The assumptions that real investment firm has to meet are following: 
+For this project, I will be acting as a consultant for a real-estate investment firm. The main goal for my project is to identify **Top 5 zipcodes** that are worth investing in and **forecast the price** for future. The assumptions of best Zip codes are following: 
 
-* The minimum capital of investment is \$200,000
-* The goal is to invest in highly urbanized U.S. areas
+* The minimum capital to enter the market is \$200,000
+* Highly urbanized U.S. areas
 * Low risk factor (low volatility threshold)
  
 ***
