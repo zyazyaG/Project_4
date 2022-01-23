@@ -51,7 +51,7 @@ SizeRank -- rank of the zipcode according to urbanization.
 
 ## Table of Content
 
-- Data Cleaning and Explorations
+- Data Cleaning and Explorations <a name="datacleaning"/>
   * Medium Price as Investment Capital
   * Volatility of the Market
   * ROI for the last 24 months
@@ -69,7 +69,7 @@ SizeRank -- rank of the zipcode according to urbanization.
 
 
 
-## Data Cleaning and Explorations
+## Data Cleaning and Explorations [#datacleaning]
 
 The dataset is stored in **wide format**, meaning all observations of **time feature** are stored as **individual columns** with median **house price of each zipcode as observations**:
 
