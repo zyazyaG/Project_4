@@ -96,7 +96,7 @@ def train_test_holdout_split(df):
     split = int(len(df) * .8)
     full_train, holdout = df.iloc[:split], df.iloc[split:]
     
-    second_split = int(len(full_train) * .9)
+    second_split = int(len(full_train) * .8)
     train, test = full_train[:second_split], full_train[second_split:]
     
     return train, test, holdout
@@ -105,6 +105,7 @@ def train_test_holdout_split(df):
 def prophet_df(df_list):
     
     for df in df_list:
+        
    
         df.reset_index(inplace = True)
         col_name = df.columns

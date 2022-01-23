@@ -26,11 +26,11 @@ def stationarity_test(data, window):
     r_std = data.rolling(window=window).std()
 
     #Plot rolling statistics:
-    fig = plt.figure(figsize=(15, 10))
+    fig = plt.figure(figsize=(12, 8))
     orig = plt.plot(data.iloc[window:], color='green',label='Original')
     mean = plt.plot(r_mean, color='red', label='Rolling Mean')
     std = plt.plot(r_std, color='blue', label = 'Rolling Std')
-    plt.legend(loc="lower center", bbox_to_anchor=(0.5, -0.3), ncol= 5, fontsize = 'large')
+    plt.legend(loc="lower center", bbox_to_anchor=(0.5, -0.4), ncol= 5, fontsize = 'large')
     plt.title('Rolling Mean & Standard Deviation of Prices')
     plt.show()
     
@@ -43,29 +43,42 @@ def dickey_fuller_test(data):
     """
     A function to apply a Dicky Fuller test and return the results in a readable dictionary
     """
-    full_dict = list()
+    full_dict = dict()
+    test_df = pd.DataFrame(columns = ['test_stats','pvalue','usedlag','num_of_obs','crit_val_10%'])
     
     for col in data.columns:
-        dicky_fuller = dict()
-        dicky_fuller['____'] = '___________________________'
-        dicky_fuller['zipcode'] = col
+        full_dict[col] = adfuller(data[col])
+    
+    for key, val in full_dict.items():
+        test_df = test_df.append(pd.DataFrame(data = {'test_stats':val[0], 'pvalue':val[1], 'usedlag':val[2], 
+                                                      'num_of_obs':val[3],'crit_val_10%':val[4]['10%']},index=[key]))
         
-        results = adfuller(data[col])
-        keys = ['test statistic','pvalue','usedlag','number of observations','critical values','best information criterion']
-        values = results
-        for key, value in zip(keys, values):
-            dicky_fuller[key] = value
-        full_dict.append(dicky_fuller)
-    return full_dict
+    test_df.index.name = 'Zipcode'
+        
+
+    return test_df
 
 def find_best_difference(data, ranges):
+    
     for col in data.columns:
-        for i in range(0,ranges):
-            difference = data[col].diff(periods=i)
-            dftest = adfuller(difference[i:])
-            print(i,dftest[1])
+        full_dict = dict()
+        test_df = pd.DataFrame()
+        
+        for i in range(1,ranges):
             
+            difference = data[col].diff(periods=i).dropna()
+            full_dict[i] = adfuller(difference)
             
+        for key, val in full_dict.items():
+            test_df = test_df.append(pd.DataFrame(data = {'test_stats':val[0], 'pvalue':val[1], 'usedlag':val[2],
+                                                          'num_of_obs':val[3],'crit_val_10%':val[4]['10%']},index=[key]))
+        
+            test_df.index.name = 'diff_lvl'  
+            
+        print(f"{col} Zipcode")    
+        print(test_df)
+    return         
+     
             
 def sarimax_model(trains, tests, metrics_df, train_predict_start=0):
     """
@@ -181,7 +194,7 @@ def run_arima_models(name, train, test, order, metrics_df, seasonal_order = (0,0
 
 def evaluate_auto_arima(model, train, test, metrics_df):
     
-    forecast = model.predict(n_periods=len(test))
+    forecast = model.predict(n_periods=len(test), typ = 'levels')
     forecast = pd.DataFrame(forecast,index = test.index,columns=['Prediction'])
 
     #plot the predictions for test set
@@ -208,4 +221,43 @@ def evaluate_auto_arima(model, train, test, metrics_df):
     
     #metrics_df = metrics_df.append(series, ignore_index=True)
     
-    return   model.summary()
+    return   forecast
+
+
+def fb_prophet(model, train, test, hold = pd.DataFrame()):
+    
+    pdf = model.make_future_dataframe(periods=len(test), freq='MS')
+    
+    pforecast = model.predict(pdf)
+    
+    model.plot(pforecast, uncertainty=True)
+    plt.plot(test, label='Actual')
+    plt.show()
+    
+    model.plot_components(pforecast)
+    plt.show()
+    
+    if hold.empty == True:
+        y_pred = pforecast['yhat'][-12:].values
+        testing_MSE = mean_squared_error(test, y_pred)**.5
+        print('Testing RMSE = ', testing_MSE)
+    else:
+        y_pred = pforecast['yhat'][-28:].values
+        testing_MSE = mean_squared_error(test.append(hold), y_pred)**.5
+        print('Testing RMSE = ', testing_MSE)
+
+    # plot expected vs actual
+    plt.plot(test.values, label='Actual')
+    plt.plot(y_pred, label='Predicted')
+    plt.legend()
+    plt.show()
+    
+    
+    return y_pred, testing_MSE
+    
+    
+
+    
+    
+    
+    
