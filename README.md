@@ -4,6 +4,11 @@
 
 ![florida](images/florida.png)
 
+### Setup Instructions
+
+In order to create and activate environment for this project, navigate to the the project directory with `cd` and run `conda env create --file topzipcode.yml` in your terminal. Next, run `conda activate topzipcode`.
+
+
 ## Overview
 
 For this project, I will be acting as a consultant for a real-estate investment firm. The main goal for my project is to identify **Top 5 zipcodes** that are worth investing in and **forecast the price** for future. The assumptions of best Zip codes are following: 
